@@ -1,7 +1,7 @@
 from time import sleep
 from selenium.webdriver.common.by import By
 from selenium import webdriver
-
+from sens_info import mail,password
 
 
 driver = webdriver.Chrome('/home/omergenc/TEST_BOARD/forSelenium/folder1/chromedriver')
@@ -13,7 +13,7 @@ email_field_id = "rcmloginuser"
 password_field_id = "LoginForm-pd6135978ee"
 
 email_field = driver.find_element(By.ID, email_field_id)
-email_field.send_keys("omer.olkun@ug.bilkent.edu.tr")
+email_field.send_keys(mail)
 
 
 sleep(1)
@@ -22,8 +22,9 @@ trs = all_elements.find_elements(By.TAG_NAME,'tr')
 print(len(trs))
 print(trs[1].get_attribute('innerHTML'))
 sec_td = trs[1].find_elements(By.TAG_NAME,'td')
-sec_td[1].find_element(By.TAG_NAME,'input').send_keys("sadasdsa")
+sec_td[1].find_element(By.TAG_NAME,'input').send_keys(password)
 
+driver.find_element(By.ID,'rcmloginsubmit').click()
 
 
 #all_elements.send_keys("asdsaad")

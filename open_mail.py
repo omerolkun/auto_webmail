@@ -17,5 +17,13 @@ email_field.send_keys("omer.olkun@ug.bilkent.edu.tr")
 
 
 sleep(1)
-a = driver.find_elements_by_class_name("pass form-control")
-print(a)
+all_elements = driver.find_element(By.TAG_NAME, 'tbody')
+trs = all_elements.find_elements(By.TAG_NAME,'tr')
+print(len(trs))
+print(trs[1].get_attribute('innerHTML'))
+sec_td = trs[1].find_elements(By.TAG_NAME,'td')
+sec_td[1].find_element(By.TAG_NAME,'input').send_keys("sadasdsa")
+
+
+
+#all_elements.send_keys("asdsaad")
